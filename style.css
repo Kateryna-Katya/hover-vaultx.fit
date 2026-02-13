@@ -704,3 +704,137 @@ h4 {
     font-size: 0.8rem;
     color: var(--text-muted);
 }
+/* Contact Section */
+.contact {
+    padding: 120px 0;
+    background: var(--bg-dark);
+}
+
+.contact__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.contact__methods {
+    margin-top: 40px;
+}
+
+.contact__method {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+}
+
+.contact__method i {
+    color: var(--primary);
+}
+
+/* Form Styles */
+.contact__form-wrapper {
+    background: var(--bg-accent);
+    padding: 50px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form__group {
+    margin-bottom: 20px;
+}
+
+.form__input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 18px 25px;
+    border-radius: 15px;
+    color: var(--text-main);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form__input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(193, 255, 0, 0.05);
+}
+
+.form__captcha {
+    margin-bottom: 20px;
+}
+
+.captcha-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.form__consent {
+    margin-bottom: 30px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.checkbox input {
+    display: none;
+}
+
+.checkbox__box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--text-muted);
+    border-radius: 5px;
+    position: relative;
+}
+
+.checkbox input:checked+.checkbox__box {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkbox__text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.form__submit {
+    width: 100%;
+    padding: 18px;
+}
+
+.form__response {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    display: none;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.form__response.success {
+    display: block;
+    background: rgba(0, 255, 128, 0.1);
+    color: #00ff80;
+}
+
+.form__response.error {
+    display: block;
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4d4d;
+}
+
+@media (max-width: 992px) {
+    .contact__container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}

@@ -264,6 +264,61 @@
         </div>
     </div>
 </section>
+<section class="contact" id="contact">
+    <div class="container contact__container">
+        <div class="contact__info" data-aos="fade-right">
+            <h2 class="section-title">Готовы к <span class="text-gradient">апгрейду?</span></h2>
+            <p class="section-subtitle">Оставьте заявку, и наш эксперт свяжется с вами для бесплатной консультации по
+                всем вопросам внедрения AI.</p>
+
+            <div class="contact__methods">
+                <div class="contact__method">
+                    <i data-lucide="mail"></i>
+                    <span>team@
+                        <?= $fullDomain ?>
+                    </span>
+                </div>
+                <div class="contact__method">
+                    <i data-lucide="phone"></i>
+                    <span>+493064515935</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact__form-wrapper" data-aos="fade-left">
+            <form id="ai-contact-form" class="form">
+                <div class="form__group">
+                    <input type="text" name="name" class="form__input" placeholder="Ваше имя" required>
+                </div>
+                <div class="form__group">
+                    <input type="email" name="email" class="form__input" placeholder="Email" required>
+                </div>
+                <div class="form__group">
+                    <input type="tel" name="phone" id="phone-input" class="form__input"
+                        placeholder="Телефон (только цифры)" required>
+                </div>
+
+                <div class="form__captcha">
+                    <label for="captcha" class="captcha-label">Сколько будет <span
+                            id="captcha-question"></span>?</label>
+                    <input type="number" id="captcha-answer" class="form__input" placeholder="Ответ" required>
+                </div>
+
+                <div class="form__consent">
+                    <label class="checkbox">
+                        <input type="checkbox" required>
+                        <span class="checkbox__box"></span>
+                        <span class="checkbox__text">Согласен на обработку персональных данных</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn--primary form__submit">Начать сейчас</button>
+
+                <div id="form-response" class="form__response"></div>
+            </form>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer class="footer">

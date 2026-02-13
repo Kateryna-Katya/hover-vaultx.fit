@@ -103,3 +103,55 @@ const initThree = () => {
 };
 
 initThree();
+// Добавьте это в конец вашего DOMContentLoaded блока
+
+const contactForm = document.getElementById('ai-contact-form');
+const phoneInput = document.getElementById('phone-input');
+const captchaQuestion = document.getElementById('captcha-question');
+const captchaAnswerInput = document.getElementById('captcha-answer');
+const formResponse = document.getElementById('form-response');
+
+// 1. Математическая капча
+let correctResult = 0;
+const generateCaptcha = () => {
+    const a = Math.floor(Math.random() * 10) + 1;
+    const b = Math.floor(Math.random() * 10) + 1;
+    correctResult = a + b;
+    captchaQuestion.textContent = `${a} + ${b}`;
+};
+generateCaptcha();
+
+// 2. Валидация телефона (только цифры)
+phoneInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[^\d]/g, '');
+});
+
+// 3. Обработка формы
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Проверка капчи
+    if (parseInt(captchaAnswerInput.value) !== correctResult) {
+        formResponse.textContent = "Неверный ответ на капчу. Попробуйте снова.";
+        formResponse.className = "form__response error";
+        generateCaptcha();
+        return;
+    }
+
+    // Имитация AJAX
+    const submitBtn = contactForm.querySelector('.form__submit');
+    submitBtn.textContent = "Отправка...";
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+        formResponse.textContent = "Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.";
+        formResponse.className = "form__response success";
+        contactForm.reset();
+        generateCaptcha();
+        submitBtn.textContent = "Начать сейчас";
+        submitBtn.disabled = false;
+        
+        // Скрыть сообщение через 5 сек
+        setTimeout(() => { formResponse.className = "form__response"; }, 5000);
+    }, 1500);
+});
